@@ -1,7 +1,8 @@
 <template>
   <v-app>
+    <the-header></the-header>
     <v-main>
-      <v-container>
+      <v-container class="d-flex justify-center">
         <nuxt />
       </v-container>
     </v-main>
@@ -9,5 +10,12 @@
 </template>
 
 <script>
-export default {}
+import TheHeader from '../components/UI/TheHeader.vue'
+export default {
+  components: { TheHeader },
+}
 </script>
+
+<style lang="scss" scoped>
+//
+</style>
