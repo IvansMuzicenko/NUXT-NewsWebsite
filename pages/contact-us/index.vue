@@ -23,17 +23,17 @@
     </section>
 
     <section>
-      <form v-on:submit.prevent="submitForm">
+      <form @submit.prevent="submitForm()">
         <label for="email">E-mail:</label>
-        <input type="email" id="email" v-model="email" />
+        <input id="email" v-model="email" type="email" />
         <br />
         <label for="tel">Tel. number:</label>
-        <input type="tel" id="tel" v-model="tel" />
+        <input id="tel" v-model="tel" type="tel" />
         <br />
         <label for="message"> Your message:</label>
         <br />
-        <textarea id="message" rows="10" v-model="message"></textarea>
-        <button @submit="submit">Send</button>
+        <textarea id="message" v-model="message" rows="10"></textarea>
+        <button type="submit">Send</button>
       </form>
     </section>
   </div>
@@ -43,6 +43,12 @@
 export default {
   data() {
     return { email: '', tel: '', message: '' }
+  },
+  methods: {
+    submitForm() {
+      console.log('Submitted')
+      this.email = this.tel = this.message = ''
+    },
   },
 }
 </script>
