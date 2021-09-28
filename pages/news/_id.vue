@@ -13,6 +13,16 @@ export default {
     const article = await $content('news', id).fetch()
     return { article }
   },
+  head: {
+    title: 'Exact article',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Exact article of news ',
+      },
+    ],
+  },
 }
 </script>
 

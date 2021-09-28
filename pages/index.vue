@@ -11,3 +11,18 @@
     </p>
   </div>
 </template>
+
+<script>
+export default {
+  head: {
+    title: 'Home',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'The best News website, with highest ratings in the world',
+      },
+    ],
+  },
+}
+</script>

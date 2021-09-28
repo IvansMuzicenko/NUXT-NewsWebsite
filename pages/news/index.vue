@@ -9,11 +9,7 @@
       >
         <v-row>
           <v-col lg="5">
-            <v-img
-              height="300"
-              width="300"
-              :src="`newsImg/${article.slug}.jpg`"
-            ></v-img>
+            <v-img height="300" width="300" :src="article.image"></v-img>
           </v-col>
           <v-col lg="7">
             <v-card-title>
@@ -36,9 +32,17 @@
 export default {
   async asyncData({ $content }) {
     const articles = await $content('news').sortBy('slug', 'desc').fetch()
-    console.log(articles)
-
     return { articles }
+  },
+  head: {
+    title: 'All News',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'All news to the moment are available only on this page',
+      },
+    ],
   },
 }
 </script>

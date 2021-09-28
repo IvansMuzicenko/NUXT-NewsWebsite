@@ -66,7 +66,11 @@
                 <v-text-field v-model="tel" label="Tel. number"></v-text-field>
               </v-col>
             </v-row>
-            <v-textarea v-model="message" :rules="messageRules" label="Message">
+            <v-textarea
+              v-model="message"
+              :rules="messageRules"
+              label="Message*"
+            >
             </v-textarea>
           </v-container>
           <v-btn v-if="valid" type="submit">Send</v-btn>
@@ -98,13 +102,22 @@ export default {
       (v) => v.length >= 20 || 'Message must be more than 20 characters',
     ],
   }),
+  head: {
+    title: 'Contact Us',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Contact us page with our information and message form',
+      },
+    ],
+  },
   methods: {
     submitForm() {
-      console.log('Submitted')
       this.firstname = this.lastname = this.email = this.tel = this.message = ''
       this.valid = true
-      this.$alert(
-        'Thanks for your feedback! We will answer you in nearest possible time!'
+      this.$root.$children[2].$refs.snackbar.showAlert(
+        'Your message was submitted! Thanks for your feedback, we will answer in nearest possible moment. GL HF '
       )
       this.$router.push('/')
     },
