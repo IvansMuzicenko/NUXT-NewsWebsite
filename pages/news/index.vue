@@ -1,15 +1,34 @@
 <template>
-  <div id="news">
-    All news
-    <ul>
-      <li v-for="article in articles" :key="article.slug">
-        <nuxt-link :to="`news/${article.slug}`">
-          {{ article.title }}
-        </nuxt-link>
-        <br />
-        {{ article.description }}
-      </li>
-    </ul>
+  <div>
+    <h1 class="d-flex justify-center">All News</h1>
+    <v-row>
+      <v-card
+        v-for="article in articles"
+        :key="article.slug"
+        class="col-12 my-3"
+      >
+        <v-row>
+          <v-col lg="5">
+            <v-img
+              height="300"
+              width="300"
+              :src="`newsImg/${article.slug}.jpg`"
+            ></v-img>
+          </v-col>
+          <v-col lg="7">
+            <v-card-title>
+              {{ article.title }}
+            </v-card-title>
+            <v-card-subtitle>{{ article.description }}</v-card-subtitle>
+            <v-card-actions>
+              <v-btn :to="`news/${article.slug}`" outlined rounded text>
+                Read more
+              </v-btn>
+            </v-card-actions>
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-row>
   </div>
 </template>
 
