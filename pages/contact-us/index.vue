@@ -83,6 +83,8 @@
 <script>
 export default {
   data: () => ({
+    alertText:
+      'Your message was submitted! Thanks for your feedback, we will answer in nearest possible moment. GL HF ',
     valid: false,
     firstname: '',
     lastname: '',
@@ -116,10 +118,9 @@ export default {
     submitForm() {
       this.firstname = this.lastname = this.email = this.tel = this.message = ''
       this.valid = true
-      this.$root.$children[2].$refs.snackbar.showAlert(
-        'Your message was submitted! Thanks for your feedback, we will answer in nearest possible moment. GL HF '
-      )
-      this.$router.push('/')
+      this.$root.$children[
+        this.$root.$children.length - 1
+      ].$refs.snackbar.showAlert(this.alertText) || this.$router.push('/')
     },
   },
 }
