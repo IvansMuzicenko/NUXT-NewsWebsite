@@ -17,7 +17,7 @@
             </v-card-title>
             <v-card-subtitle>{{ article.description }}</v-card-subtitle>
             <v-card-actions>
-              <v-btn :to="`news/${article.slug}`" outlined rounded text>
+              <v-btn :to="`/news/${article.slug}`" outlined rounded text>
                 Read more
               </v-btn>
             </v-card-actions>
